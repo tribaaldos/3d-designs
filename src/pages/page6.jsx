@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import React, { useEffect } from 'react';
 import * as dat from 'dat.gui'
+import { RingGeometry } from 'three';
 // import { Material } from 'three';
 // import { CubeTextureLoader } from 'three';
 
@@ -54,10 +55,10 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 //lights 
-const ambientLight = new THREE.AmbientLight(0xffffff, 5)
-scene.add(ambientLight)
+// const ambientLight = new THREE.AmbientLight(0xffffff, 100)
+// scene.add(ambientLight)
 
-const pointLight = new THREE.PointLight(0xffffff, 5)
+const pointLight = new THREE.PointLight(0xffffff, 50)
 pointLight.position.x = 2
 pointLight.position.y = 3
 pointLight.position.z = 4
@@ -114,10 +115,10 @@ scene.add(pointLight)
 
 const material = new THREE.MeshStandardMaterial()
 material.metalness = 1
-material.roughness = 0
+material.roughness = 0.75
 material.envMap = environmentMapTexture
-gui.add(material, 'metalness').min(0).max(1).step(0.0001)
-gui.add(material, 'roughness').min(0).max(1).step(0.0001)
+// gui.add(material, 'metalness').min(0).max(1).step(0.0001)
+// gui.add(material, 'roughness').min(0).max(1).step(0.0001)
 
 const material1 = new THREE.MeshStandardMaterial()
 material1.metalness = 1
@@ -152,16 +153,24 @@ const sphere4 = new THREE.Mesh( new THREE.SphereGeometry(0.5, 64, 64), materialL
 sphere4.position.set(-1.5, -2, 0)
 
 const plane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+plane.position.set (1.5, 3, 1.5)
 const plane1 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+plane1.position.set(1.5, 3, -1.5)
 const plane2 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+plane2.position.set(-1.5, 3, 1.5)
 const plane3 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+plane3.position.set(-1.5, 3, -1.5)
 const plane4 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+plane4.position.set(1.5, -3, 1.5)
 const plane5 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+plane5.position.set(1.5, -3, -1.5)
 const plane6 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+plane6.position.set(-1.5, -3, 1.5)
 const plane7 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
-const plane8 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+plane7.position.set(-1.5, -3, -1.5)
 
-
+const groupPlane = new THREE.Group();
+groupPlane.add( plane1, plane2, plane3, plane4, plane5, plane6, plane7 );
 
 
 const torus = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.2, 64, 128),material)
@@ -193,8 +202,12 @@ box3.position.set(-1.5, 0, -1.5)
 
 const box4 = new THREE.Mesh(new THREE.BoxGeometry(1, 5, 1), material)
 box4.position.set(0, 0, 0)
-scene.add(sphere, sphere1, sphere2, sphere3, sphere4, plane, torus, torus1, torus2, torus3, torus4)
-scene.add(box, box1, box2, box3, box4)
+
+const something = new THREE.Mesh(new THREE.RingGeometry(5,10, 8, 8, 0), material)
+something.position.set(0, 0, 1.5)
+scene.add(sphere, sphere1, sphere2, sphere3, sphere4, torus, torus1, torus2, torus3, torus4)
+scene.add(box, box1, box2, box3, box4, something)
+scene.add(groupPlane)
 /**
  * Sizes
  */
@@ -252,14 +265,10 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // update objects
-
-    sphere.rotation.y =  0.1 * elapsedTime
-    plane.rotation.y =  0.1 * elapsedTime
-    torus.rotation.y =  0.1 * elapsedTime
-
-    sphere.rotation.x =  0.15 * elapsedTime
-    plane.rotation.x =  0.15 * elapsedTime
-    torus.rotation.x =  0.15 * elapsedTime
+    groupPlane.rotation.x = 1 * elapsedTime
+    groupPlane.rotation.y = 1 * elapsedTime
+    groupPlane.rotation.z = 1 * elapsedTime
+  
 
     // Update controls
     controls.update()
