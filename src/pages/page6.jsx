@@ -2,7 +2,8 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import React, { useEffect } from 'react';
 import * as dat from 'dat.gui'
-import { CubeTextureLoader } from 'three';
+// import { Material } from 'three';
+// import { CubeTextureLoader } from 'three';
 
 export default function Page6() {
   useEffect(() => {
@@ -17,13 +18,13 @@ const gui = new dat.GUI()
 // TEXTURES
 const textureLoader = new THREE.TextureLoader();
 const cubeTextureLoader = new THREE.CubeTextureLoader();
-const colorTexture = textureLoader.load('/static/textures/door/color.jpg')
-const alphaTexture = textureLoader.load('/static/textures/door/alpha.jpg')
-const heightTexture = textureLoader.load('/static/textures/door/height.jpg')
-const normalTexture = textureLoader.load('/static/textures/door/normal.jpg')
-const ambientOcclusionTexture = textureLoader.load('/static/textures/door/ambientOcclusion.jpg')
-const metalnessTexture = textureLoader.load('/static/textures/door/metalness.jpg')
-const roughness = textureLoader.load('/static/textures/door/roughness.jpg')
+// const colorTexture = textureLoader.load('/static/textures/door/color.jpg')
+// const alphaTexture = textureLoader.load('/static/textures/door/alpha.jpg')
+// const heightTexture = textureLoader.load('/static/textures/door/height.jpg')
+// const normalTexture = textureLoader.load('/static/textures/door/normal.jpg')
+// const ambientOcclusionTexture = textureLoader.load('/static/textures/door/ambientOcclusion.jpg')
+// const metalnessTexture = textureLoader.load('/static/textures/door/metalness.jpg')
+// const roughness = textureLoader.load('/static/textures/door/roughness.jpg')
 const matcapTexture = textureLoader.load('/static/textures/matcaps/1.png')
 const gradientTexture = textureLoader.load('/static/textures/gradients/3.png')
 gradientTexture.magFilter = THREE.NearestFilter
@@ -53,10 +54,10 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 //lights 
-const ambientLight = new THREE.AmbientLight(0xffffff, 2)
+const ambientLight = new THREE.AmbientLight(0xffffff, 5)
 scene.add(ambientLight)
 
-const pointLight = new THREE.PointLight(0xffffff, 0.5)
+const pointLight = new THREE.PointLight(0xffffff, 5)
 pointLight.position.x = 2
 pointLight.position.y = 3
 pointLight.position.z = 4
@@ -94,7 +95,7 @@ scene.add(pointLight)
 // gradientTexture.magFilter = THREE.NearestFilter
 // material.gradientMap = gradientTexture
 
-// const material = new THREE.MeshStandardMaterial()
+// const material3 = new THREE.MeshStandardMaterial()
 // material.metalness = 0
 // material.roughness = 1
 // gui.add(material, 'metalness').min(0).max(1).step(0.0001)
@@ -123,27 +124,77 @@ material1.metalness = 1
 material1.roughness = 0
 material1.envMap = environmentMapTexture1
 
-const sphere = new THREE.Mesh(
-   new THREE.SphereGeometry(0.5, 64, 64),
-   material
-)
-sphere.position.x = - 1.5
+const materialBasic = new THREE.MeshStandardMaterial()
+materialBasic.color = new THREE.Color('blue')
+// materialBasic.map = matcapTexture
+materialBasic.wireframe = true
 
+const materialMatcap = new THREE.MeshMatcapMaterial()
+materialMatcap.matcap = matcapTexture
+
+const materialLambert = new THREE.MeshLambertMaterial()
+
+
+//3D MODELS
+
+const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 64, 64),material)
+sphere.position.set(-1.5, 0, 0)
 const sphere1 = new THREE.Mesh( new THREE.SphereGeometry(0.5, 64, 64), material1)
-sphere1.position.x = 1
+sphere1.position.set(-1.5, 1, 0)
 
-const plane = new THREE.Mesh(
-   new THREE.PlaneGeometry(1, 1, 100, 100),
-   material
-)
+const sphere2 = new THREE.Mesh( new THREE.SphereGeometry(0.5, 64, 64), materialBasic)
+sphere2.position.set(-1.5, 2, 0)
 
-const torus = new THREE.Mesh(
-   new THREE.TorusGeometry(0.3, 0.2, 64, 128),
-   material
-)
-torus.position.x = 1.5
-scene.add(sphere, sphere1, plane, torus)
+const sphere3 = new THREE.Mesh( new THREE.SphereGeometry(0.5, 64, 64), materialMatcap)
+sphere3.position.set(-1.5, -1, 0)
 
+const sphere4 = new THREE.Mesh( new THREE.SphereGeometry(0.5, 64, 64), materialLambert)
+sphere4.position.set(-1.5, -2, 0)
+
+const plane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+const plane1 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+const plane2 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+const plane3 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+const plane4 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+const plane5 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+const plane6 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+const plane7 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+const plane8 = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 100, 100), material)
+
+
+
+
+const torus = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.2, 64, 128),material)
+torus.position.set(1.5, 1, 0 )
+
+const torus1 = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.2, 64, 128),material)
+torus1.position.set(1.5, 2, 0 )
+
+const torus2 = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.2, 64, 128),material)
+torus2.position.set(1.5, -1, 0 )
+
+const torus3 = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.2, 64, 128),material)
+torus3.position.set(1.5, -2, 0 )
+
+const torus4 = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.2, 64, 128),material)
+torus4.position.set(1.5, 0, 0 )
+
+const box = new THREE.Mesh(new THREE.BoxGeometry(1, 5, 1), material)
+box.position.set(-1.5, 0, 1.5)
+
+const box1 = new THREE.Mesh(new THREE.BoxGeometry(1, 5, 1), material)
+box1.position.set(1.5, 0, -1.5)
+
+const box2 = new THREE.Mesh ( new THREE.BoxGeometry(1,5,1), material)
+box2.position.set(1.5, 0, 1.5)
+
+const box3 = new THREE.Mesh (new THREE.BoxGeometry(1, 5, 1), material)
+box3.position.set(-1.5, 0, -1.5)
+
+const box4 = new THREE.Mesh(new THREE.BoxGeometry(1, 5, 1), material)
+box4.position.set(0, 0, 0)
+scene.add(sphere, sphere1, sphere2, sphere3, sphere4, plane, torus, torus1, torus2, torus3, torus4)
+scene.add(box, box1, box2, box3, box4)
 /**
  * Sizes
  */
