@@ -22,7 +22,7 @@ export default function NavBar() {
                         <li><Link to="/page5">Textures</Link></li>
                         <li><Link to="/page6">Materials</Link></li>
                         <li><Link to="/page7">3dText</Link></li>
-
+                        <li><Link to="/page8">TicTacToeGame</Link></li>
                         </ul>
                     )}
                 </li>

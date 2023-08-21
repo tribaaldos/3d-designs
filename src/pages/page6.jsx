@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import React, { useEffect } from 'react';
-import * as dat from 'dat.gui'
-import { RingGeometry } from 'three';
+// import * as dat from 'dat.gui'
+// import { RingGeometry } from 'three';
 // import { Material } from 'three';
 // import { CubeTextureLoader } from 'three';
 
@@ -15,7 +15,7 @@ THREE.ColorManagement.enabled = false
  * Base
  */
 // debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 // TEXTURES
 const textureLoader = new THREE.TextureLoader();
 const cubeTextureLoader = new THREE.CubeTextureLoader();
