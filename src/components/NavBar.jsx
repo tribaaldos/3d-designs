@@ -24,32 +24,32 @@ export default function NavBar() {
                 <div className="dropdown-content">
                     <Link to="/lights">Lights</Link>
                     <Link to="/shadows">Shadows</Link>
-                    <Link to="">Haunted House</Link>
-                    <Link to="">Particles</Link>
-                    <Link to="">Galaxy Generator</Link>
-                    <Link to="">Scroll based animation</Link>
+                    <Link to="/haunted-house">Haunted House</Link>
+                    <Link to="/particles">Particles</Link>
+                    <Link to="/galaxy-generator">Galaxy Generator</Link>
+                    <Link to="/scroll-based-animation">Scroll based animation</Link>
                 </div>
             </div>
             <div className="dropdown">
                 <button className="dropbtn">Advanced Techniques</button>
                 <div className="dropdown-content">
-                    <Link to="">Physics</Link>
-                    <Link to="">Imported Models</Link>
-                    <Link to="">Raycaster and Mouse Events</Link>
-                    <Link to="blender-models">Custom models with Blender</Link>
-                    <Link to="">Environment map</Link>
-                    <Link to="">Realistic render</Link>
-                    <Link to="">Code structuring for bigger projects</Link>
+                    <Link to="/physics">Physics</Link>
+                    <Link to="/imported-models">Imported Models</Link>
+                    <Link to="/raycaster">Raycaster and Mouse Events</Link>
+                    <Link to="/blender-models">Custom models with Blender</Link>
+                    <Link to="/environment-map">Environment map</Link>
+                    <Link to="/realistic-render">Realistic render</Link>
+                    <Link to="/code-structure">Code structuring for bigger projects</Link>
                 </div>
             </div>
             <div className="dropdown">
                 <button className="dropbtn">Shaders</button>
                 <div className="dropdown-content">
-                    <Link to="">Shaders</Link>
-                    <Link to="">Shader patterns</Link>
-                    <Link to="">Raging sea</Link>
-                    <Link to="">Animated galaxy</Link>
-                    <Link to="">Modified Materials</Link>
+                    <Link to="/shaders">Shaders</Link>
+                    <Link to="/shader-patterns">Shader patterns</Link>
+                    <Link to="/raging-sea">Raging sea</Link>
+                    <Link to="/animated-galaxy">Animated galaxy</Link>
+                    <Link to="/modified-materials">Modified Materials</Link>
                 </div>
             </div>
             <div className="dropdown">

@@ -10,6 +10,7 @@ export default function Textures() {
      * Base
      */
 
+
     // Textures 
     const loadingManager = new THREE.LoadingManager();
     loadingManager.onStart = () => {
@@ -42,14 +43,19 @@ export default function Textures() {
     
     // Scene
     const scene = new THREE.Scene()
-    
+
+    // lights
+    const pointLight1 = new THREE.PointLight('white', 555)
+    pointLight1.position.set(1, 5, 0)
+    pointLight1.castShadow = true
+    scene.add(pointLight1)
+
     /**
      * Object
      */
     const geometry = new THREE.BoxGeometry(1, 1, 1)
     const material = new THREE.MeshBasicMaterial({ map: colorTexture })
     const mesh = new THREE.Mesh(geometry, material)
-
     const material1 = new THREE.MeshBasicMaterial({ map: alphaTexture })
     const mesh1 = new THREE.Mesh(geometry, material1)
     
@@ -67,6 +73,14 @@ export default function Textures() {
 
     const material6 = new THREE.MeshBasicMaterial({ map: roughness })
     const mesh6 = new THREE.Mesh(geometry, material6)
+    mesh.castShadow = true
+    mesh1.castShadow = true
+    mesh2.castShadow = true
+    mesh3.castShadow = true
+    mesh4.castShadow = true
+    mesh5.castShadow = true
+    mesh6.castShadow = true
+
     scene.add(mesh, mesh1, mesh2, mesh3, mesh4, mesh5, mesh6)
     
     //positions
@@ -78,6 +92,16 @@ export default function Textures() {
     mesh5.position.set(-3, 2.5, 1)
     mesh6.position.set(-1, 2.5, 1)
     
+    // floor
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.MeshStandardMaterial({
+        color: 'blue'
+    }))
+    floor.receiveShadow = true
+    floor.position.set(0, 0, 0)
+    floor.rotation.x = - Math.PI * 0.5
+
+    scene.add(floor)
+
     /**
      * Sizes
      */
@@ -107,7 +131,7 @@ export default function Textures() {
     // Base camera
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
     camera.position.x = 1
-    camera.position.y = 1
+    camera.position.y = 5
     camera.position.z = 10
     scene.add(camera)
     
@@ -124,7 +148,7 @@ export default function Textures() {
     renderer.outputColorSpace = THREE.LinearSRGBColorSpace
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    
+    renderer.shadowMap.enabled = true
     /**
      * Animate
      */
