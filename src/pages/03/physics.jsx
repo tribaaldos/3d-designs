@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 
 
@@ -14,7 +14,7 @@ export default function Physics() {
         /**
          * Debug
          */
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
         
         /**
          * Base
@@ -28,7 +28,7 @@ export default function Physics() {
         /**
          * Textures
          */
-        const textureLoader = new THREE.TextureLoader()
+        // const textureLoader = new THREE.TextureLoader()
         const cubeTextureLoader = new THREE.CubeTextureLoader()
         
         const environmentMapTexture = cubeTextureLoader.load([
@@ -140,11 +140,11 @@ export default function Physics() {
         /**
          * Animate
          */
-        const clock = new THREE.Clock()
+        // const clock = new THREE.Clock()
         
         const tick = () =>
         {
-            const elapsedTime = clock.getElapsedTime()
+            // const elapsedTime = clock.getElapsedTime()
         
             // Update controls
             controls.update()

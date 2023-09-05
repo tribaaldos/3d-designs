@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 
 export default function EnvironmentMap() {
@@ -78,11 +78,11 @@ export default function EnvironmentMap() {
         /**
          * Animate
          */
-        const clock = new THREE.Clock()
+        // const clock = new THREE.Clock()
         const tick = () =>
         {
             // Time
-            const elapsedTime = clock.getElapsedTime()
+            // const elapsedTime = clock.getElapsedTime()
         
             // Update controls
             controls.update()

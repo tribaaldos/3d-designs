@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 
 export default function Particles() {
@@ -14,7 +14,7 @@ export default function Particles() {
          * Base
          */
         // Debug
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
         
         const canvas = document.querySelector('canvas.webgl')
         const scene = new THREE.Scene()
@@ -30,7 +30,7 @@ export default function Particles() {
 
         for(let i = 0; i < count * 3; i++){
             positions[i] = (Math.random() - 0.5) * 10
-            colors [i] = Math.random()
+            colors[i] = Math.random()
         }
 
         particlesGeometry.setAttribute(

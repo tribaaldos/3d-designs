@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 
 export default function ModifiedMaterials() {
@@ -13,7 +13,7 @@ export default function ModifiedMaterials() {
          * Base
          */
         // Debug
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
         
         // Canvas
         const canvas = document.querySelector('canvas.webgl')
@@ -157,11 +157,11 @@ export default function ModifiedMaterials() {
         /**
          * Animate
          */
-        const clock = new THREE.Clock()
+        // const clock = new THREE.Clock()
         
         const tick = () =>
         {
-            const elapsedTime = clock.getElapsedTime()
+            // const elapsedTime = clock.getElapsedTime()
         
             // Update controls
             controls.update()

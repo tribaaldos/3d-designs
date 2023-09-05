@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 
 export default function Raycaster() {
@@ -14,7 +14,7 @@ export default function Raycaster() {
          * Base
          */
         // Debug
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
         
         // Canvas
         const canvas = document.querySelector('canvas.webgl')
@@ -92,11 +92,11 @@ export default function Raycaster() {
         /**
          * Animate
          */
-        const clock = new THREE.Clock()
+        // const clock = new THREE.Clock()
         
         const tick = () =>
         {
-            const elapsedTime = clock.getElapsedTime()
+            // const elapsedTime = clock.getElapsedTime()
         
             // Update controls
             controls.update()

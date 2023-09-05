@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 export default function BlenderModels() {
     useEffect(() => {
@@ -15,7 +15,7 @@ export default function BlenderModels() {
          * Base
          */
         // Debug
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
         
         // Canvas
         const canvas = document.querySelector('canvas.webgl')

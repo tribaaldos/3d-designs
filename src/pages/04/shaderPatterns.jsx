@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 import testVertexShader from '../../shaders/test/vertex.glsl'
 import testFragmentShader from '../../shaders/test/fragment.glsl'
 
@@ -15,7 +15,7 @@ export default function ShaderPatterns() {
          * Base
          */
         // Debug
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
         
         // Canvas
         const canvas = document.querySelector('canvas.webgl')

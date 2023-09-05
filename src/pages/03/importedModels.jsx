@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 
 
@@ -14,7 +14,7 @@ export default function ImportedModels() {
          * Base
          */
         // Debug
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
         
         // Canvas
         const canvas = document.querySelector('canvas.webgl')
@@ -105,14 +105,15 @@ export default function ImportedModels() {
         /**
          * Animate
          */
-        const clock = new THREE.Clock()
-        let previousTime = 0
+        // const clock = new THREE.Clock()
+        // let previousTime = 0
         
         const tick = () =>
         {
-            const elapsedTime = clock.getElapsedTime()
-            const deltaTime = elapsedTime - previousTime
-            previousTime = elapsedTime
+            // const elapsedTime = clock.getElapsedTime()
+            // // const deltaTime = elapsedTime - previousTime
+            // let previousTime
+            // previousTime = elapsedTime
         
             // Update controls
             controls.update()

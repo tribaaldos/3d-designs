@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'lil-gui'
-import { Material } from 'three';
+// import { Material } from 'three';
 
 
 export default function Shadows() {
@@ -16,7 +16,7 @@ export default function Shadows() {
 
         // Textures 
         const textureLoader = new THREE.TextureLoader();
-        const bakedShadow = textureLoader.load('/static/textures/shadows/bakedShadow.jpg')
+        // const bakedShadow = textureLoader.load('/static/textures/shadows/bakedShadow.jpg')
         const simpleShadow = textureLoader.load('/static/textures/shadows/simpleShadow.jpg')
         // Debug
         const gui = new dat.GUI()
