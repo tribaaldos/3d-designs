@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-three/fiber": "^8.13.6",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@react-three/fiber": "^8.14.1",
+    "@testing-library/jest-dom": "^6.1.2",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "dat.gui": "^0.7.9",
     "gsap": "^3.12.2",
     "lil-gui": "^0.18.2",
@@ -15,9 +15,9 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "stats.js": "^0.17.0",
-    "three": "^0.155.0",
+    "three": "^0.156.1",
     "vite": "^4.3.9",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
