@@ -50,9 +50,10 @@ export default function Textures() {
     pointLight1.castShadow = true
     scene.add(pointLight1)
 
-    /**
-     * Object
-     */
+    
+    //objects
+    
+    
     const geometry = new THREE.BoxGeometry(1, 1, 1)
     const material = new THREE.MeshBasicMaterial({ map: colorTexture })
     const mesh = new THREE.Mesh(geometry, material)
@@ -73,6 +74,9 @@ export default function Textures() {
 
     const material6 = new THREE.MeshBasicMaterial({ map: roughness })
     const mesh6 = new THREE.Mesh(geometry, material6)
+
+    const group = new THREE.Group();
+    group.add(mesh, mesh1, mesh2, mesh3, mesh4, mesh5, mesh6)
     mesh.castShadow = true
     mesh1.castShadow = true
     mesh2.castShadow = true
@@ -81,17 +85,19 @@ export default function Textures() {
     mesh5.castShadow = true
     mesh6.castShadow = true
 
-    scene.add(mesh, mesh1, mesh2, mesh3, mesh4, mesh5, mesh6)
+    // scene.add(mesh, mesh1, mesh2, mesh3, mesh4, mesh5, mesh6)
     
     //positions
-    mesh.position.set(0.5, 1, 1)
-    mesh1.position.set(2, 2.5, 1)
-    mesh2.position.set(3, 1, 1)
-    mesh3.position.set(4, 2.5, 1)
-    mesh4.position.set(-2, 1, 1)
-    mesh5.position.set(-3, 2.5, 1)
-    mesh6.position.set(-1, 2.5, 1)
+    mesh.position.set(-7, 1, -4)
+    mesh1.position.set(-5, 1, -4)
+    mesh2.position.set(-3, 1, -4)
+    mesh3.position.set(-1, 1, -4)
+    mesh4.position.set(1, 1, -4)
+    mesh5.position.set(3, 1, -4)
+    mesh6.position.set(5, 1, -4)
     
+    scene.add(group)
+
     // floor
     const floor = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.MeshStandardMaterial({
         color: 'blue'

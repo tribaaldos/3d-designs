@@ -25,6 +25,8 @@ export default function GalaxyGenerator(){
         const pointLight = new THREE.PointLight('white', 555)
         pointLight.position.set(1, 5, 0)
         pointLight.castShadow = true
+        pointLight.shadow.mapSize.width = 1024
+        pointLight.shadow.mapSize.height = 1024
         scene.add(pointLight)
         //cube test
         const cubo = new THREE.Mesh( new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({color: 'red'}))
@@ -78,7 +80,7 @@ export default function GalaxyGenerator(){
         
             const colorInside = new THREE.Color(parameters.insideColor)
             const colorOutside = new THREE.Color(parameters.outsideColor)
-        
+
             for(let i = 0; i < parameters.count; i++)
             {
                 // Position
@@ -94,9 +96,9 @@ export default function GalaxyGenerator(){
                 const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
         
                 positions[i3    ] = Math.cos(branchAngle + spinAngle) * radius + randomX
-                positions[i3 + 1] = Math.max(randomY - parameters.radius, 0);
+                positions[i3 + 1] = 2 + Math.max(randomY - parameters.radius, 0);
                 positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ
-        
+                
                 // Color
                 const mixedColor = colorInside.clone()
                 mixedColor.lerp(colorOutside, radius / parameters.radius)
@@ -105,6 +107,26 @@ export default function GalaxyGenerator(){
                 colors[i3 + 1] = mixedColor.g
                 colors[i3 + 2] = mixedColor.b
             }
+                //             // Add this code to your generateGalaxy function
+                // const galaxyMaterial = new THREE.MeshStandardMaterial({
+                //     color: 'white', // Color of the points (can be any color you like)
+                //     roughness: 0.7,
+                //     metalness: 0.2,
+                //     transparent: true, // Enable transparency for the spheres
+                //     opacity: 0.5, // Adjust opacity as needed
+                //     side: THREE.DoubleSide, // Render both sides of the spheres
+                // });
+                
+                // const sphereGeometry = new THREE.SphereGeometry(parameters.size, 32, 32);
+                
+                // const galaxy = new THREE.InstancedMesh(
+                //     sphereGeometry,
+                //     galaxyMaterial,
+                //     parameters.count
+                // );
+                // galaxy.castShadow = true; // Enable shadow casting for the spheres
+                // galaxy.receiveShadow = false; // Points don't receive shadows
+                // scene.add(galaxy);
         
             geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
             geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3))
@@ -117,7 +139,7 @@ export default function GalaxyGenerator(){
                 sizeAttenuation: true,
                 depthWrite: false,
                 blending: THREE.AdditiveBlending,
-                vertexColors: true
+                vertexColors: true,
             })
         
             /**
@@ -138,6 +160,9 @@ export default function GalaxyGenerator(){
         gui.addColor(parameters, 'outsideColor').onFinishChange(generateGalaxy)
         
         generateGalaxy()
+
+
+  
         
         /**
          * Sizes
