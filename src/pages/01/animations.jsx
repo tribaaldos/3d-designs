@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
 
+
 export default function Animation() {
   useEffect(() => {
     /**
@@ -44,6 +45,7 @@ export default function Animation() {
     });
     renderer.setSize(sizes.width, sizes.height);
 
+    
     /**
      * Animate
      */

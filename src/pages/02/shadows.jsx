@@ -108,11 +108,18 @@ export default function Shadows() {
         )
         sphere.castShadow = true
 
+        const sphere1 = new THREE.Mesh(
+            new THREE.SphereGeometry(0.5, 32, 32), material
+        )
+        sphere1.castShadow = true
+        sphere1.position.set(0, 0, 5)
+        scene.add(sphere1)
+
         const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), material)
-        cube.position.set(-2, 0, 0)
+        cube.position.set(0, 0, 0)
         cube.castShadow = true
         scene.add(cube)
-        const plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), material)
+        const plane = new THREE.Mesh(new THREE.PlaneGeometry(10, 10), material)
         plane.receiveShadow = true
         plane.rotation.x = - Math.PI * 0.5
         plane.position.y = - 0.5
@@ -121,7 +128,7 @@ export default function Shadows() {
 
         const sphereShadow = new THREE.Mesh(
             new THREE.PlaneGeometry(1.5, 1.5), 
-            new THREE.MeshBasicMaterial({ color: 0xff0000, alphaMap: simpleShadow, transparent: true })
+            new THREE.MeshBasicMaterial({ color: 'blue', alphaMap: simpleShadow, transparent: true })
         )
         sphereShadow.rotation.x = - Math.PI * 0.5
         sphereShadow.position.y = plane.position.y + 0.01
@@ -187,6 +194,10 @@ export default function Shadows() {
             sphere.position.x = Math.cos(elapsedTime) * 1.5
             sphere.position.z = Math.sin(elapsedTime) * 1.5
             sphere.position.y = Math.abs(Math.sin(elapsedTime * 3))
+
+            sphere1.position.x = Math.cos(elapsedTime)
+            sphere1.position.z = Math.sin(elapsedTime)
+            sphere1.position.y = 0.5 + Math.abs(Math.sin(elapsedTime))
             // update the shadow
             sphereShadow.position.x = sphere.position.x
             sphereShadow.position.z = sphere.position.z

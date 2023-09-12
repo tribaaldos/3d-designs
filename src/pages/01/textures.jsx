@@ -1,11 +1,14 @@
+import GUI from 'lil-gui';
 import React, { useEffect } from 'react';
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import * as dat from 'lil-gui'
 
 export default function Textures() {
   useEffect(() => {
     THREE.ColorManagement.enabled = false
     
+    const gui = new dat.GUI()
     /**
      * Base
      */
@@ -18,25 +21,25 @@ export default function Textures() {
     }
     const textureLoader = new THREE.TextureLoader(loadingManager);
     const colorTexture = textureLoader.load('/static/textures/minecraft.png')
-    const alphaTexture = textureLoader.load('/static/textures/door/alpha.jpg')
+    const alphaTexture = textureLoader.load('/static/textures/matcaps/1.png')
     const heightTexture = textureLoader.load('/static/textures/door/height.jpg')
     const normalTexture = textureLoader.load('/static/textures/door/normal.jpg')
     const ambientOcclusionTexture = textureLoader.load('/static/textures/door/ambientOcclusion.jpg')
     const metalnessTexture = textureLoader.load('/static/textures/door/metalness.jpg')
     const roughness = textureLoader.load('/static/textures/door/roughness.jpg')
     
-    // colorTexture.repeat.x = 2
-    // colorTexture.repeat.y = 3
-    // colorTexture.wrapS = THREE.MirroredRepeatWrapping
-    // colorTexture.wrapT = THREE.MirroredRepeatWrapping
+    colorTexture.repeat.x = 2
+    colorTexture.repeat.y = 3
+    colorTexture.wrapS = THREE.MirroredRepeatWrapping
+    colorTexture.wrapT = THREE.MirroredRepeatWrapping
 
-    // colorTexture.offset.x = 0.5
-    // colorTexture.offset.y = 0.5
+    colorTexture.offset.x = 0.5
+    colorTexture.offset.y = 0.5
 
-    // colorTexture.rotation = 1 
-
-    // colorTexture.minFilter = THREE.NearestFilter
+    colorTexture.minFilter = THREE.NearestFilter
     colorTexture.magFilter = THREE.NearestFilter
+
+    alphaTexture.matcap = true
     
     // Canvas
     const canvas = document.querySelector('canvas.webgl')
@@ -136,10 +139,10 @@ export default function Textures() {
      */
     // Base camera
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-    camera.position.x = 1
-    camera.position.y = 5
-    camera.position.z = 10
-    scene.add(camera)
+    camera.position.x = -8.3
+    camera.position.y = 1
+    camera.position.z = -4.5
+ 
     
     // Controls
     const controls = new OrbitControls(camera, canvas)
