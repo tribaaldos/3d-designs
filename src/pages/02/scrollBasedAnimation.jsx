@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
-// import './scrollBased.css'
+import './scrollBased.css'
 
 
 export default function ScrollBasedAnimation() {
@@ -32,9 +32,19 @@ export default function ScrollBasedAnimation() {
         
         // Scene
         const scene = new THREE.Scene()
+        // Textures
+        
+        const textureLoader = new THREE.TextureLoader()
+        const gradientTexture = textureLoader.load('static/textures/gradients/3.jpg')
+        gradientTexture.magFilter = THREE.NearestFilter
 
-        const material = new THREE.MeshToonMaterial({ color: parameters.materialColor })
-        const mesh1 = new THREE.Mesh(
+        const material = new THREE.MeshToonMaterial({
+            color: parameters.materialColor, 
+            gradientMap: gradientTexture
+         })
+        
+        const objectsDistance = 4
+        const mesh1 = new THREE.Mesh( 
              new THREE.TorusGeometry(1, 0.4, 16, 60),
              material
              )
@@ -47,7 +57,13 @@ export default function ScrollBasedAnimation() {
              new THREE.ConeGeometry(0.8, 0.35, 100, 16),
              material        )
 
+        mesh1.position.y = - objectsDistance * 0
+        mesh2.position.y = - objectsDistance * 1
+        mesh3.position.y = - objectsDistance * 2
+
         scene.add(mesh1, mesh2, mesh3) 
+        
+        const sectionMeshes = [ mesh1, mesh2, mesh3 ]
 
         //Lights
         const directionalLight = new THREE.DirectionalLight('#ffffff', 1)
@@ -98,15 +114,27 @@ export default function ScrollBasedAnimation() {
         renderer.setSize(sizes.width, sizes.height)
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
         
+        //scroll
+        let scrollY = window.scrollY
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY
+        })
         /**
          * Animate
          */
-        // const clock = new THREE.Clock()
+        const clock = new THREE.Clock()
         
         const tick = () =>
         {
-            // const elapsedTime = clock.getElapsedTime()
-        
+            const elapsedTime = clock.getElapsedTime()
+            // animate camera 
+            camera.position.y = - scrollY / sizes.height
+            // animate meshes
+            for (const mesh of sectionMeshes) {
+                mesh.rotation.x = elapsedTime * 0.1
+                mesh.rotation.y = elapsedTime * 0.12
+            }
+
             // Render
             renderer.render(scene, camera) 
         
@@ -120,6 +148,15 @@ export default function ScrollBasedAnimation() {
     return (
         <div id="canvascontainer">
             <canvas className="webgl"></canvas>
+            <section className="section">
+                <h1>My Portfolio</h1>
+            </section>
+            <section className="section">
+                <h2>My projects</h2>
+            </section>
+            <section className="section">
+                <h2>Contact me</h2>
+            </section>
         </div>
     )
 }
