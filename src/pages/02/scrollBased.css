@@ -7,11 +7,13 @@
 html
 {
     background: #1e1a20;
+
 }
 
 .webgl
 {
-    position: absolute;
+    pointer-events: none;
+    position: fixed;
     top: 0;
     left: 0;
     outline: none;
@@ -20,6 +22,7 @@ html
 
 .section
 {
+
     display: flex;
     align-items: center;
     height: 100vh;
