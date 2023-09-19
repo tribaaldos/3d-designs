@@ -1,14 +1,14 @@
-import GUI from 'lil-gui';
+// import GUI from 'lil-gui';
 import React, { useEffect } from 'react';
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 export default function Textures() {
   useEffect(() => {
     THREE.ColorManagement.enabled = false
     
-    const gui = new dat.GUI()
+    // const gui = new dat.GUI()
     /**
      * Base
      */

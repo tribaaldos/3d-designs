@@ -43,6 +43,10 @@ export default function Raycaster() {
         object3.position.x = 2
         
         scene.add(object1, object2, object3)
+
+        // Ray Caster
+        const raycaster = new THREE.Raycaster()
+        const 
         
         /**
          * Sizes

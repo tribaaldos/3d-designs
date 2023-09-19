@@ -57,7 +57,7 @@ export default function App() {
           <Route path="/haunted-house" element={<HauntedHouse />} />
           <Route path="/particles" element={<Particles />} />
           <Route path="/galaxy-generator" element={<GalaxyGenerator />} />
-          <Route path="/scroll-based-animation" element={<ScrollBasedAnimation />} />
+          {/* <Route path="/scroll-based-animation" element={<ScrollBasedAnimation />} /> */}
 
 
           <Route path="/physics" element={<Physics />}></Route>
