@@ -11,7 +11,6 @@ import Geometry from './pages/01/geometry';
 import Materials from './pages/01/materials';
 import Textures from './pages/01/textures';
 import Text3d from './pages/01/3dtext';
-import TicTacToe from './pages/01/tictactoe';
 //02
 import Lights from './pages/02/lights';
 import Shadows from './pages/02/shadows';
@@ -34,6 +33,13 @@ import RagingSea from './pages/04/ragingsea';
 import AnimatedGalaxy from './pages/04/animatedGalaxy';
 import ModifiedMaterials from './pages/04/modifiedMaterials';
 
+//6
+import Portal from './pages/06/portal'
+
+
+// 7
+import FirstReactFiber from './pages/07/firstReactFiber';
+import Game from './pages/07/game/index';
 
 export default function App() {
   return (
@@ -50,7 +56,6 @@ export default function App() {
           <Route path="/materials" element={<Materials />} />
           <Route path="/textures" element={<Textures />} />
           <Route path="/text3d" element={<Text3d />} />
-          <Route path="/page8" element={<TicTacToe />} />
 
           <Route path="/lights" element={<Lights />} />
           <Route path="/shadows" element={<Shadows />} />
@@ -74,6 +79,10 @@ export default function App() {
           <Route path="/animated-galaxy" element={<AnimatedGalaxy />}></Route>
           <Route path="/modified-materials" element={<ModifiedMaterials />}></Route>
 
+          <Route path="/portal" element={<Portal />}></Route>
+          <Route path="/firstReactFiber" element={<FirstReactFiber />}> </Route>
+          <Route path="/Game" element={<Game />}></Route>
+          
         </Routes>
       </BrowserRouter>
     </>

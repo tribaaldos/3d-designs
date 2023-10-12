@@ -55,9 +55,9 @@ export default function NavBar() {
             <div className="dropdown">
                 <button className="dropbtn">Freelance Projects</button>
                 <div className="dropdown-content">
-                    <Link to="">1</Link>
-                    <Link to="">1</Link>
-                    <Link to="">1</Link>
+                    <Link to="portal">Portal Scene </Link>
+                    <Link to="firstReactFiber">First React Fiber</Link>
+                    <Link to="Game">Game</Link>
                     <Link to="">1</Link>
                     <Link to="">1</Link>
                     <Link to="">1</Link>
