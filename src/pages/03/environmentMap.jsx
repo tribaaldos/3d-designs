@@ -3,9 +3,9 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'lil-gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
-import { EXRLoader } from 'three/addons/loaders/EXRLoader.js'
-import { GroundProjectedSkybox } from 'three/addons/objects/GroundProjectedSkybox.js'
+// import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
+// import { EXRLoader } from 'three/addons/loaders/EXRLoader.js'
+// import { GroundProjectedSkybox } from 'three/addons/objects/GroundProjectedSkybox.js'
 
 
 export default function EnvironmentMap() {
@@ -15,9 +15,9 @@ export default function EnvironmentMap() {
          * Loaders
          */
         const gltfLoader = new GLTFLoader()
-        const cubeTextureLoader = new THREE.CubeTextureLoader()
-        const rgbeLoader = new RGBELoader()
-        const exrLoader = new EXRLoader()
+        // const cubeTextureLoader = new THREE.CubeTextureLoader()
+        // const rgbeLoader = new RGBELoader()
+        // const exrLoader = new EXRLoader()
         const textureLoader = new THREE.TextureLoader()
 
         /**

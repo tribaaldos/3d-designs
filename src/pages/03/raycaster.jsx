@@ -52,7 +52,7 @@ export default function Raycaster() {
          */
         const raycaster = new THREE.Raycaster()
         let currentIntersect = null
-        const rayOrigin = new THREE.Vector3(- 3, 0, 0)
+        // const rayOrigin = new THREE.Vector3(- 3, 0, 0)
         const rayDirection = new THREE.Vector3(10, 0, 0)
         rayDirection.normalize()
         

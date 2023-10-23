@@ -17,7 +17,7 @@ import Shadows from './pages/02/shadows';
 import HauntedHouse from './pages/02/hauntedHouse';
 import Particles from './pages/02/particles';
 import GalaxyGenerator from './pages/02/galaxyGenerator';
-import ScrollBasedAnimation from './pages/02/scrollBasedAnimation';
+// import ScrollBasedAnimation from './pages/02/scrollBasedAnimation';
 //03
 import Physics from './pages/03/physics';
 import BlenderModels from './pages/03/blenderModels';

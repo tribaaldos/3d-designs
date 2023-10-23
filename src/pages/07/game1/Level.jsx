@@ -136,7 +136,7 @@ function Bounds({ length = 1 }) {
         </RigidBody>
     </>
 }
-export default function Level({ count = 5, types = [BlockSpinner, BlockAxe, BlockLimbo], seed = 0 }) {
+export default function Level({ count = 5, types = [BlockSpinner, BlockAxe, BlockLimbo], seed = 1 }) {
     const blocks = useMemo(() => {
         const blocks = []
 
