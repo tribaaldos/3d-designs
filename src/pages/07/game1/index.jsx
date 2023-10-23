@@ -1,5 +1,5 @@
 import './style.css'
-import ReactDOM from 'react-dom/client'
+// import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import Interface from './Interface.jsx'
@@ -7,7 +7,7 @@ import { KeyboardControls } from '@react-three/drei'
 
 export default function Game() {
     
-    const root = ReactDOM.createRoot(document.querySelector('#root'))
+    // const root = ReactDOM.createRoot(document.querySelector('#root'))
 
     root.render(
         <KeyboardControls
@@ -30,7 +30,9 @@ export default function Game() {
             >
                 <Experience />
             </Canvas>
+            
             <Interface />
+
         </KeyboardControls>
     )
 }

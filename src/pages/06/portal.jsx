@@ -7,8 +7,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import firefliesVertexShader from "../../shaders/fireflies/vertex.glsl"
 import firefliesFragmentShader from "../../shaders/fireflies/fragment.glsl"
 
-console.log(firefliesVertexShader)
-console.log(firefliesFragmentShader)
+
 export default function Portal() {
     useEffect(() => {
 

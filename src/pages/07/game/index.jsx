@@ -33,4 +33,4 @@ export default function Game() {
 }
 
 // Render the Game component into the root element
-ReactDOM.createRoot(document.querySelector('#root')).render(<Game />);
+// ReactDOM.createRoot(document.querySelector('#root')).render(<Game />);

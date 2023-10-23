@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-three/drei": "^9.83.9",
+    "@react-three/drei": "^9.88.2",
     "@react-three/fiber": "^8.14.1",
     "@react-three/rapier": "^1.1.1",
     "@testing-library/jest-dom": "^6.1.2",
@@ -25,7 +25,9 @@
     "zustand": "^4.4.2"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "vite-plugin-glsl": "^0.0.2",
+    "vite-plugin-glslify": "^2.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
