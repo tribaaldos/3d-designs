@@ -33,6 +33,9 @@ import RagingSea from './pages/04/ragingsea';
 import AnimatedGalaxy from './pages/04/animatedGalaxy';
 import ModifiedMaterials from './pages/04/modifiedMaterials';
 
+//5
+import Html from './pages/05/Html'
+
 //6
 import Portal from './pages/06/portal'
 
@@ -47,7 +50,7 @@ export default function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-
+          {/* 01 */}
           <Route path="/"></Route>
           <Route path="/animations" element={<Animations />} />
           <Route path="/camera" element={<Camera />} />
@@ -56,7 +59,7 @@ export default function App() {
           <Route path="/materials" element={<Materials />} />
           <Route path="/textures" element={<Textures />} />
           <Route path="/text3d" element={<Text3d />} />
-
+          {/* 02 */}
           <Route path="/lights" element={<Lights />} />
           <Route path="/shadows" element={<Shadows />} />
           <Route path="/haunted-house" element={<HauntedHouse />} />
@@ -64,7 +67,7 @@ export default function App() {
           <Route path="/galaxy-generator" element={<GalaxyGenerator />} />
           {/* <Route path="/scroll-based-animation" element={<ScrollBasedAnimation />} /> */}
 
-
+          {/* 03 */}
           <Route path="/physics" element={<Physics />}></Route>
           <Route path="/imported-models" element={<ImportedModels />}></Route>
           <Route path="/raycaster" element={<Raycaster />}></Route>
@@ -72,14 +75,17 @@ export default function App() {
           <Route path="/environment-map" element={<EnvironmentMap />}></Route>
           <Route path="/realistic-render" element={<RealisticRender />}></Route>
           <Route path="/code-structure" element={<CodeStructure />}></Route>
-
+          {/* 04 */}
           <Route path="/shaders" element={<Shaders />}></Route>
           <Route path="/shader-patterns" element={<ShaderPatterns />}></Route>
           <Route path="/raging-sea" element={<RagingSea />}></Route>
           <Route path="/animated-galaxy" element={<AnimatedGalaxy />}></Route>
           <Route path="/modified-materials" element={<ModifiedMaterials />}></Route>
-
+          {/* 05 */}
+          <Route path="/html" element={<Html />} />
+          {/* 06 */}
           <Route path="/portal" element={<Portal />}></Route>
+          {/* 07 */}
           <Route path="/firstReactFiber" element={<FirstReactFiber />}> </Route>
           <Route path="/Game" element={<Game />}></Route>
           

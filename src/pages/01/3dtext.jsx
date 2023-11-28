@@ -100,19 +100,19 @@ export default function Text3d() {
         new THREE.BoxGeometry(1, 1, 1),
         new THREE.MeshBasicMaterial()
     )
-    const gltfLoader = new GLTFLoader();
-    gltfLoader.load(
+    // const gltfLoader = new GLTFLoader();
+    // gltfLoader.load(
 
-        '/static/models/lina2.glb',
-        (gltf) => 
-        {
-            console.log(gltf)
-            for (const child of gltf.scene.children)
-            {
-                scene.add(child)
-            }
-        }
-    )
+    //     '/static/models/lina2.glb',
+    //     (gltf) => 
+    //     {
+    //         console.log(gltf)
+    //         for (const child of gltf.scene.children)
+    //         {
+    //             scene.add(child)
+    //         }
+    //     }
+    // )
     // scene.add(cube)
 
     /**

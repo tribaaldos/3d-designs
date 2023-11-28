@@ -26,12 +26,7 @@ export default function BlenderModels() {
         /**
          * Models
          */
-        const dracoLoader = new DRACOLoader()
-        dracoLoader.setDecoderPath('/static/draco/')
-        
-        const gltfLoader = new GLTFLoader()
-        gltfLoader.setDRACOLoader(dracoLoader)
-        
+
         let mixer = null
         
         gltfLoader.load(

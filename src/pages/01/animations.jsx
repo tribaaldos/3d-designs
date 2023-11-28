@@ -65,6 +65,8 @@ export default function Animation() {
   return (
     <div id="canvas-container">
       <canvas className="webgl"></canvas>
+      <h2>fuc∏k</h2>
     </div>
   );
 }
+cd 
